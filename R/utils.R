@@ -232,7 +232,90 @@ function_registry <- function() {
   cat("   * labs(title='X', x='Eje X', y='Eje Y', fill='Leyenda'): Añade etiquetas.\n")
   cat("   * coord_flip(): Intercambia los ejes X y Y (hace horizontales los boxplots o barras).\n\n")
   
-  cat("======================================================================\n")
-  cat(" FIN DE LA AYUDA - ¡ROMPELA EN EL PARCIAL!\n")
+}
+
+#' @export
+ggplot_empty_templates <- function() {
+  cat("\n======================================================================\n")
+  cat("             MASTER TEMPLATES: ESTRUCTURA DE GGPLOT2\n")
+  cat("======================================================================\n\n")
+
+  cat("# 1. PLANTILLA MAESTRA DETALLADA\n")
+  cat("ggplot(data = <The DATA>) + \n")
+  cat("  # 1. ESTETICAS (Aesthetics)\n")
+  cat("  aes(x = <X_VAR>, y = <Y_VAR>, color = <GROUP_VAR>, fill = <GROUP_VAR>) + \n\n")
+  cat("  # 2. GEOMETRIAS (Geoms)\n")
+  cat("  geom_<TYPE>(\n")
+  cat("    mapping = aes(<LOCAL_AESTHETICS>),\n")
+  cat("    stat = '<STAT>', \n")
+  cat("    position = '<POSITION>'\n")
+  cat("  ) + \n\n")
+  cat("  # 2.1 Regresiones (On the fly)\n")
+  cat("  geom_smooth(method = 'lm', se = TRUE) + \n")
+  cat("  # Nota: Para modelos fuera del plot usa -> modelo <- lm(y ~ x, data = df)\n\n")
+  cat("  # 3. FACETAS (Facets - para multiples paneles)\n")
+  cat("  facet_wrap(~ <VAR>) + # o facet_grid(<VAR_Y> ~ <VAR_X>)\n\n")
+  cat("  # 4. ESCALAS (Scales - colores, ejes, tamanos)\n")
+  cat("  scale_<AXIS>_<TYPE>() +\n")
+  cat("  scale_color_manual(values = c('color1', 'color2')) + \n\n")
+  cat("  # 5. COORDENADAS (Coordinates)\n")
+  cat("  coord_flip() + # Ejemplo: para rotar el grafico\n\n")
+  cat("  # 6. ETIQUETAS (Labels)\n")
+  cat("  labs(\n")
+  cat("    title = 'Titulo del Plot',\n")
+  cat("    subtitle = 'Subtitulo informativo',\n")
+  cat("    x = 'Eje X',\n")
+  cat("    y = 'Eje Y',\n")
+  cat("    caption = 'Fuente de los datos',\n")
+  cat("    color = 'Leyenda'\n")
+  cat("  ) + \n\n")
+  cat("  # 7. TEMAS (Theme - apariencia visual no-datos)\n")
+  cat("  theme_minimal() + \n")
+  cat("  theme(\n")
+  cat("    legend.position = 'bottom',\n")
+  cat("    axis.text.x = element_text(angle = 45)\n")
+  cat("  )\n\n")
+
+  cat("# 2. PLANTILLA RESUMIDA (Accion Rapida)\n")
+  cat("ggplot(data = <The DATA>) + \n")
+  cat("  aes(x = <X_VAR>, y = <Y_VAR>, color = <GROUP_VAR>, fill = <GROUP_VAR>) + \n")
+  cat("  geom_<TYPE>(mapping = aes(<LOCAL_AESTHETICS>), stat = '<STAT>', position = '<POSITION>') + \n")
+  cat("  facet_wrap(~ <VAR>) + \n")
+  cat("  scale_<AXIS>_<TYPE>() + \n")
+  cat("  scale_color_manual(values = c('color1', 'color2')) + \n")
+  cat("  labs(title = 'Titulo', x = 'Eje X', y = 'Eje Y', color = 'Leyenda') + \n")
+  cat("  theme_dark() + \n")
+  cat("  theme(legend.position = 'bottom', axis.text.x = element_text(angle = 45))\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" GALERIA DE GEOMS: PLANTILLAS LISTAS PARA RELLENAR\n")
+  cat("----------------------------------------------------------------------\n\n")
+
+  cat("1. DISPERSION (Puntos)\n")
+  cat("   geom_point(aes(shape = <CAT>, size = <NUM>), alpha = 0.7, color = 'blue')\n\n")
+
+  cat("2. LINEAS (Tendencias temporales)\n")
+  cat("   geom_line(aes(group = <CAT>, linetype = <CAT>), linewidth = 1)\n\n")
+
+  cat("3. BARRAS (Conteo automatico de filas)\n")
+  cat("   geom_bar(aes(fill = <CAT>), position = 'dodge')\n\n")
+
+  cat("4. COLUMNAS (Cuando ya tienes el valor calculado en Y)\n")
+  cat("   geom_col(aes(x = fct_reorder(<CAT>, <NUM>), y = <NUM>))\n\n")
+
+  cat("5. BOXPLOTS (Distribuciones)\n")
+  cat("   geom_boxplot(outlier.colour = 'red', notch = FALSE)\n\n")
+
+  cat("6. TEXTO (Etiquetar puntos)\n")
+  cat("   geom_text(aes(label = <VAR_TEXTO>), vjust = -0.5, hjust = 0.5)\n\n")
+
+  cat("7. TENDENCIA / REGRESION\n")
+  cat("   geom_smooth(method = 'lm', se = TRUE, color = 'red')\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" TIPS RAPIDOS DE 'AES' vs 'PARAMETROS'\n")
+  cat("----------------------------------------------------------------------\n")
+  cat("* DENTRO de aes(): Si el color/forma depende de una COLUMNA de tus datos.\n")
+  cat("* FUERA de aes(): Si quieres que TODO el grafico sea de un color fijo.\n")
   cat("======================================================================\n")
 }
