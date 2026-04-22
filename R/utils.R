@@ -315,3 +315,37 @@ ggplot_empty_templates <- function() {
   cat("* FUERA de aes(): Si quieres que TODO el grafico sea de un color fijo.\n")
   cat("======================================================================\n")
 }
+
+
+#' @export
+pivot_longer_recap <- function() {
+  cat("\n======================================================================\n")
+  cat("             COMO FUNCIONA PIVOT_LONGER (EJEMPLO AÑOS)\n")
+  cat("======================================================================\n\n")
+
+  cat("1. DF ORIGINAL (Formato Ancho/Wide):\n")
+  cat("------------------------------------\n")
+  cat("Individuo  |  2020  |  2021  |  2022\n")
+  cat("-----------|--------|--------|------\n")
+  cat("   A       |   10   |   12   |   15 \n\n")
+
+  cat("2. EL CODIGO QUE DEBES USAR:\n")
+  cat("---------------------------\n")
+  cat("df_largo <- df_ancho %>% \n")
+  cat("  pivot_longer(\n")
+  cat("    cols = c('2020', '2021', '2022'), # Columnas que se van a derretir\n")
+  cat("    names_to = 'Anio',                # Donde van los TITULOS (2020, 2021...)\n")
+  cat("    values_to = 'Conteo'              # Donde van los NUMEROS (10, 12, 15...)\n")
+  cat("  )\n\n")
+
+  cat("3. DF RESULTANTE (Formato Largo/Long):\n")
+  cat("------------------------------------\n")
+  cat("Individuo  |  Anio  |  Conteo\n")
+  cat("-----------|--------|--------\n")
+  cat("   A       |  2020  |    10  \n")
+  cat("   A       |  2021  |    12  \n")
+  cat("   A       |  2022  |    15  \n\n")
+
+  cat("TIP: Ahora ya puedes hacer ggplot(df_largo, aes(x = Anio, y = Conteo)) \n")
+  cat("======================================================================\n")
+}
