@@ -122,7 +122,7 @@ function_registry <- function() {
   
   cat("12. case_when()\n")
   cat("   * Plantilla: df %>% mutate(cat = case_when(col < 10 ~ 'Bajo', col < 20 ~ 'Medio', TRUE ~ 'Alto'))\n")
-  cat("   * Descripcion: Un if_else multiple. Evalua multiples condiciones en orden.\n")
+  cat("   * Descripcion: Un if_else multiple. Evalua multiples condiciones en orden. Util para categorizar variables.\n")
   cat("   * Inputs: 'condicion ~ valor' (Requerido) -> Multiples formulas logicas. TRUE ~ 'valor' funciona como el 'else' final.\n\n")
   
   cat("13. drop_na()\n")
@@ -142,7 +142,7 @@ function_registry <- function() {
   cat("   * n_distinct(x) -> Cuenta valores unicos excluyendo duplicados\n\n")
 
   cat("----------------------------------------------------------------------\n")
-  cat(" GRUPO 4: SELECCION INTELIGENTE Y OPERACIONES POR FILA (TALLER 9)\n")
+  cat(" GRUPO 4: SELECCION INTELIGENTE Y OPERACIONES POR FILA\n")
   cat("----------------------------------------------------------------------\n\n")
   
   cat("16. Helpers de select() (starts_with, ends_with, contains, where)\n")
@@ -215,7 +215,8 @@ function_registry <- function() {
   cat("   * geom_col(): Grafico de barras con valores especificos (requiere x, y). Identity stat.\n")
   cat("   * geom_bar(): Grafico de barras de conteo automatico (requiere solo x).\n")
   cat("   * geom_boxplot(): Diagramas de caja (requiere x categorico, y numerico).\n")
-  cat("   * geom_line(): Graficos de series de tiempo (requiere x, y, y a veces group=1).\n\n")
+  cat("   * geom_line(): Graficos de series de tiempo (requiere x, y, y a veces group=1).\n")
+  cat("   * geom_vline(): Añade lineas verticales de referencia (ej. xintercept = 75).\n\n")
   
   cat("27. facet_wrap() / facet_grid()\n")
   cat("   * Plantilla: + facet_wrap(~ variable_categorica)\n")
@@ -225,7 +226,95 @@ function_registry <- function() {
   cat("28. labs() y coord_flip()\n")
   cat("   * labs(title='X', x='Eje X', y='Eje Y', fill='Leyenda'): Añade etiquetas.\n")
   cat("   * coord_flip(): Intercambia los ejes X y Y (hace horizontales los boxplots o barras).\n\n")
-  
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" GRUPO 7: CONDICIONALES CLASICOS Y CONTROL DE FLUJO\n")
+  cat("----------------------------------------------------------------------\n\n")
+
+  cat("29. if () { ... } else { ... }\n")
+  cat("   * Plantilla: if (x > 0) { print('Positivo') } else { print('Negativo') }\n")
+  cat("   * Descripcion: Expresion condicional basica. Ejecuta comandos diferentes dependiendo de si un elemento cumple o no una condicion (No vectorizado, opera sobre un solo valor).\n")
+  cat("   * Inputs: Condicion logica dentro del parentesis, y la accion dentro de corchetes {}.\n\n")
+
+  cat("30. ifelse()\n")
+  cat("   * Plantilla: ifelse(vector > 0, 1/(vector+10), 'no aplica')\n")
+  cat("   * Descripcion: Expresion condicional vectorizada. Revisa para cada uno de los elementos de un vector si la condicion se cumple y responde de acuerdo a eso.\n")
+  cat("   * Inputs: 'test' (Requerido) -> Pregunta logica (T o F).\n")
+  cat("             'yes' (Requerido) -> Respuesta si es TRUE.\n")
+  cat("             'no' (Requerido) -> Respuesta si es FALSE.\n\n")
+
+  cat("31. which.min() / which.max()\n")
+  cat("   * Plantilla: which.min(df$columna)\n")
+  cat("   * Descripcion: Devuelve la posicion (indice) del elemento con el valor minimo o maximo en un vector.\n")
+  cat("   * Inputs: 'x' (Requerido) -> Vector numerico.\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" GRUPO 8: FUNCIONES PROPIAS Y BUCLES (LOOPS)\n")
+  cat("----------------------------------------------------------------------\n\n")
+
+  cat("32. function()\n")
+  cat("   * Plantilla: mi_funcion <- function(x, y) { r <- (x+y)*2 ; return(r) }\n")
+  cat("   * Descripcion: Permite crear funciones propias para evitar repetir codigo.\n")
+  cat("   * Inputs: Argumentos de entrada dentro del parentesis, cuerpo de la funcion en corchetes {}.\n\n")
+
+  cat("33. return()\n")
+  cat("   * Plantilla: return(resultado)\n")
+  cat("   * Descripcion: Define el valor final que la funcion debe arrojar (salida). Los objetos creados dentro de la funcion no se guardan en el ambiente.\n")
+  cat("   * Inputs: Variable o calculo a retornar.\n\n")
+
+  cat("34. for () { ... }\n")
+  cat("   * Plantilla: for (i in 1:10) { print(i) }\n")
+  cat("   * Descripcion: Realiza la misma operacion multiples veces evaluando de uno en uno los elementos de un vector. Util para procesos acumulativos (ej. genetica de poblaciones).\n")
+  cat("   * Inputs: '(variable in vector_o_rango)' seguido de las operaciones en corchetes {}.\n\n")
+
+  cat("35. seq()\n")
+  cat("   * Plantilla: seq(-5, 5)\n")
+  cat("   * Descripcion: Genera secuencias de numeros regulares. Ideal para definir el rango de un for-loop.\n")
+  cat("   * Inputs: 'from' (Requerido) -> Inicio, 'to' (Requerido) -> Fin, 'by' (Opcional) -> Pasos.\n\n")
+
+  cat("36. vector() / numeric()\n")
+  cat("   * Plantilla: s_n <- numeric(100)  o  s_n <- vector()\n")
+  cat("   * Descripcion: Inicializa vectores vacios antes de un loop para poder almacenar los resultados iterativos.\n")
+  cat("   * Inputs: 'length' (Opcional/Requerido) -> El tamaño reservado del vector.\n\n")
+
+  cat("37. cat() y paste()\n")
+  cat("   * Plantilla: cat('El numero', i, 'al cuadrado es', i^2, '\\n')\n")
+  cat("   * Descripcion: Imprimen y concatenan texto. 'cat' lo saca directo a la consola (ideal para loops y funciones), mientras 'paste' crea un string.\n")
+  cat("   * Inputs: '... ' -> Multiples variables o strings separados por comas.\n\n")
+
+  cat("38. runif()\n")
+  cat("   * Plantilla: runif(1, min=1, max=10)\n")
+  cat("   * Descripcion: Obtiene numeros aleatorios a partir de una distribucion uniforme.\n")
+  cat("   * Inputs: 'n' (Requerido) -> Cantidad, 'min' -> Limite inferior, 'max' -> Limite superior.\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" GRUPO 9: CADENAS DE CARACTERES Y EXPRESIONES REGULARES (STRINGR)\n")
+  cat("----------------------------------------------------------------------\n\n")
+
+  cat("39. str_length()\n")
+  cat("   * Plantilla: str_length(string_vector)\n")
+  cat("   * Descripcion: Cuenta cuantos elementos/caracteres tiene cada uno de los strings de un vector.\n")
+  cat("   * Inputs: 'string' (Requerido) -> Vector de caracteres.\n\n")
+
+  cat("40. str_view()\n")
+  cat("   * Plantilla: str_view(secuencias, 'ATG', match = TRUE)\n")
+  cat("   * Descripcion: Resalta en consola exactamente lo que coincide con el patron buscado. Ideal para probar regex.\n")
+  cat("   * Inputs: 'string' (Requerido), 'pattern' (Requerido) -> Patron a buscar, 'match' (Opcional) -> Si es FALSE devuelve lo que NO hace match.\n\n")
+
+  cat("41. str_detect()\n")
+  cat("   * Plantilla: df %>% filter(str_detect(columna, 'virus'))\n")
+  cat("   * Descripcion: Pregunta si el string contiene el patron. Devuelve un vector logico (TRUE/FALSE). Muy util dentro de filter().\n")
+  cat("   * Inputs: 'string' (Requerido), 'pattern' (Requerido).\n\n")
+
+  cat("42. str_count()\n")
+  cat("   * Plantilla: str_count(secuencias, 'ATG')\n")
+  cat("   * Descripcion: Cuenta cuantas veces aparece el patron en cada string.\n")
+  cat("   * Inputs: 'string' (Requerido), 'pattern' (Requerido).\n\n")
+
+  cat("43. regex()\n")
+  cat("   * Plantilla: str_detect(text, regex('homo sapiens', ignore_case = TRUE))\n")
+  cat("   * Descripcion: Modificador de patrones. Permite hacer la busqueda insensible a mayusculas/minusculas.\n")
+  cat("   * Inputs: 'pattern' (Requerido), 'ignore_case' (Opcional) -> TRUE para ignorar diferencias de caja.\n\n")
 }
 
 #' @export
@@ -244,8 +333,9 @@ ggplot_empty_templates <- function() {
   cat("    stat = '<STAT>', \n")
   cat("    position = '<POSITION>'\n")
   cat("  ) + \n\n")
-  cat("  # 2.1 Regresiones (On the fly)\n")
+  cat("  # 2.1 Regresiones y Lineas de Referencia (On the fly)\n")
   cat("  geom_smooth(method = 'lm', se = TRUE) + \n")
+  cat("  geom_vline(xintercept = <VALOR_NUMERICO>, linetype = 'dashed', color = 'red') + \n")
   cat("  # Nota: Para modelos fuera del plot usa -> modelo <- lm(y ~ x, data = df)\n\n")
   cat("  # 3. FACETAS (Facets - para multiples paneles)\n")
   cat("  facet_wrap(~ <VAR>) + # o facet_grid(<VAR_Y> ~ <VAR_X>)\n\n")
@@ -306,6 +396,10 @@ ggplot_empty_templates <- function() {
   cat("7. TENDENCIA / REGRESION\n")
   cat("   geom_smooth(method = 'lm', se = TRUE, color = 'red')\n\n")
 
+  cat("8. LINEAS DE REFERENCIA\n")
+  cat("   geom_vline(xintercept = <NUM>, linetype = 'dashed')\n")
+  cat("   geom_hline(yintercept = <NUM>, linetype = 'dashed')\n\n")
+
   cat("----------------------------------------------------------------------\n")
   cat(" TIPS RAPIDOS DE 'AES' vs 'PARAMETROS'\n")
   cat("----------------------------------------------------------------------\n")
@@ -313,7 +407,6 @@ ggplot_empty_templates <- function() {
   cat("* FUERA de aes(): Si quieres que TODO el grafico sea de un color fijo.\n")
   cat("======================================================================\n")
 }
-
 
 #' @export
 pivot_longer_recap <- function() {
@@ -345,5 +438,67 @@ pivot_longer_recap <- function() {
   cat("   A       |  2022  |    15  \n\n")
 
   cat("TIP: Ahora ya puedes hacer ggplot(df_largo, aes(x = Anio, y = Conteo)) \n")
+  cat("======================================================================\n")
+}
+
+#' @export
+regex_recap <- function() {
+  cat("\n======================================================================\n")
+  cat("        ESTRUCTURA Y SINTAXIS DE EXPRESIONES REGULARES (REGEX)\n")
+  cat("======================================================================\n\n")
+  
+  cat("Las expresiones regulares son patrones flexibles para buscar texto.\n\n")
+  
+  cat("1. OPERADOR OR (Alternancia) '|'\n")
+  cat("------------------------------------\n")
+  cat("   * Ejemplo: 'TAA|TAG|TGA'\n")
+  cat("   * Utilidad: Busca el primer string, O el segundo, O el tercero.\n\n")
+  
+  cat("2. CLASES DE CARACTERES '[...]' (Menu de opciones)\n")
+  cat("------------------------------------\n")
+  cat("   * Ejemplo: '[AG]'\n")
+  cat("   * Utilidad: En esa posicion especifica, puede ir CUALQUIERA de las letras enlistadas (en este caso A o G).\n\n")
+  
+  cat("3. CLASES DE CARACTERES NEGADAS '[^...]'\n")
+  cat("------------------------------------\n")
+  cat("   * Ejemplo: '[^ATGC]'\n")
+  cat("   * Utilidad: El 'caret' (^) dentro de los corchetes significa NO CONTIENE. Util para buscar caracteres invalidos (todo lo que NO sea A, T, G o C).\n\n")
+  
+  cat("4. RANGOS '[A-Z]' o '[0-9]'\n")
+  cat("------------------------------------\n")
+  cat("   * Ejemplo: 'A[A-Z][0-9]'\n")
+  cat("   * Utilidad: Busca cualquier letra mayuscula o cualquier digito en una posicion especifica. En este ejemplo busca: 'A', seguida de cualquier letra mayuscula, seguida de cualquier numero.\n\n")
+
+  cat("======================================================================\n")
+}
+
+#' @export
+loops_recap <- function() {
+  cat("\n======================================================================\n")
+  cat("                 ESTRUCTURA BASICA DE UN FOR-LOOP\n")
+  cat("======================================================================\n\n")
+  
+  cat("Los loops son utiles cuando el valor que vas a estimar depende directamente del valor calculado en la iteracion anterior (procesos acumulativos).\n\n")
+  
+  cat("1. PREPARACION:\n")
+  cat("---------------------------\n")
+  cat("Siempre debes crear un vector vacio antes para guardar tus resultados.\n")
+  cat("resultados <- numeric(100) # Vector vacio de tamaño 100\n\n")
+
+  cat("2. EL BUCLE (LOOP):\n")
+  cat("---------------------------\n")
+  cat("for (i in 1:100) {\n")
+  cat("  # La operacion matematica o logica usando la 'i'\n")
+  cat("  resultados[i] <- i + (i - 1)\n")
+  cat("}\n\n")
+  
+  cat("3. CON CONDICIONES INTERNAS (If / Break):\n")
+  cat("---------------------------\n")
+  cat("Dentro del loop puedes usar 'if' para detenerlo prematuramente si se alcanza un umbral.\n")
+  cat("for (i in 1:100) {\n")
+  cat("  if (resultados[i-1] < 25) {\n")
+  cat("      break # Detiene el loop completamente\n")
+  cat("  }\n")
+  cat("}\n")
   cat("======================================================================\n")
 }
