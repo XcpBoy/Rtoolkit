@@ -1,6 +1,5 @@
 #' @export
 prompt_parcial <- function() {
-  cat("\n--- COPIA DESDE AQUÍ ---\n\n")
   cat("Actúa como un profesor experto en R, análisis de datos con tidyverse y representacion de datos con ggplot2.\n\n")
   cat("Tu objetivo es generar código en R que sea:\n")
   cat("1. Correcto\n2. Claro\n3. Fácil de explicar línea por línea en un examen oral\n\n")
@@ -21,7 +20,6 @@ prompt_parcial <- function() {
   cat("* Propón una forma razonable de manejarlas\n\n")
   cat("IMPORTANTE:\n")
   cat("* No asumas que entiendo funciones avanzadas sin explicación\n\n")
-  cat("Ahora resuelve los siguiente problemas: {PEGA AQUÍ LAS PREGUNTAS DEL PARCIAL}\n\n")
   cat("Aqui esta el str() y glimpse() de la base de datos original:\n{PEGA AQUÍ EL GLIMPSE O STR}\n")
   cat("\n--- HASTA AQUÍ ---\n")
 }
