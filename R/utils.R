@@ -522,3 +522,58 @@ loops_recap <- function() {
   cat("}\n")
   cat("======================================================================\n")
 }
+
+
+#' @export
+dataframe_creation_recap <- function() {
+  cat("\n======================================================================\n")
+  cat("             ¿COMO CREAR UN DATAFRAME PASO A PASO?\n")
+  cat("======================================================================\n\n")
+  
+  cat("1. METODO DIRECTO: A PARTIR DE VECTORES EXISTENTES\n")
+  cat("--------------------------------------------------\n")
+  cat("Si ya tienes los vectores listos con la informacion organizada, simplemente los\n")
+  cat("unes asegurando que tengan exactamente la misma longitud.\n\n")
+  
+  cat("Plantilla R Base:\n")
+  cat("df <- data.frame(\n")
+  cat("  nombre_col1 = vector_1,\n")
+  cat("  nombre_col2 = vector_2\n")
+  cat(")\n\n")
+  
+  cat("Plantilla Tidyverse (Genera un tibble, mas limpio visualmente):\n")
+  cat("library(tibble)\n")
+  cat("df <- tibble(\n")
+  cat("  nombre_col1 = vector_1,\n")
+  cat("  nombre_col2 = vector_2\n")
+  cat(")\n\n")
+  
+  cat("2. METODO DINAMICO: VECTOR INICIAL + DERIVACION (Caso Clasificacion de Errores)\n")
+  cat("--------------------------------------------------\n")
+  cat("Cuando tienes un vector base 'sucio' o crudo y necesitas construir las demas\n")
+  cat("columnas aplicando logica condicional (como expresiones regulares).\n\n")
+  
+  cat("Paso A: Crear el dataframe inicial usando tu vector como primera columna.\n")
+  cat("df_inicial <- data.frame(secuencia = coi_sucias, stringsAsFactors = FALSE)\n\n")
+  
+  cat("Paso B: Usar mutate() junto con case_when() para evaluar la columna y crear la nueva.\n")
+  cat("library(dplyr)\n")
+  cat("library(stringr)\n\n")
+  cat("df_final <- df_inicial %>%\n")
+  cat("  mutate(\n")
+  cat("    problema = case_when(\n")
+  cat("      str_detect(secuencia, '-')      ~ 'guión',\n")
+  cat("      str_detect(secuencia, '\\\\\\\\s')     ~ 'espacio',\n")
+  cat("      str_detect(secuencia, '\\\\\\\\d')     ~ 'dígito',\n")
+  cat("      str_detect(secuencia, '[Nn]')   ~ 'base ambigua',\n")
+  cat("      TRUE                            ~ 'sin problema' # Respaldo por si esta limpia\n")
+  cat("    )\n")
+  cat("  )\n\n")
+  
+  cat("3. REGLAS DE ORO AL CONSTRUIR DATAFRAMES\n")
+  cat("--------------------------------------------------\n")
+  cat("  * Longitud identica: Todos los vectores columnas DEBEN medir lo mismo (ej. si uno tiene 5 elementos, todos deben tener 5).\n")
+  cat("  * Reciclaje de valores: Si pasas un unico valor fijo (ej. numero o string), R lo repetira automaticamente en todas las filas.\n")
+  cat("  * Nombres de columnas validos: Evita usar espacios o caracteres especiales en los nombres (prefiere 'mi_columna' a 'mi columna').\n")
+  cat("======================================================================\n")
+}
