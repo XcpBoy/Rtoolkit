@@ -4,16 +4,6 @@ function_registry <- function() {
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
   
-  cat("1. glimpse()\n")
-  cat("   * Plantilla: glimpse(df)\n")
-  cat("   * Descripcion: Muestra un resumen transpuesto de los datos (columnas como filas) para ver todos los tipos de variables.\n")
-  cat("   * Inputs: 'df' (Requerido) -> El dataframe a explorar.\n\n")
-  
-  cat("2. str()\n")
-  cat("   * Plantilla: str(df)\n")
-  cat("   * Descripcion: Muestra la estructura interna del objeto en R base. Similar a glimpse pero mas tecnico.\n")
-  cat("   * Inputs: 'object' (Requerido) -> El objeto o dataframe a evaluar.\n\n")
-  
   cat("3. summary()\n")
   cat("   * Plantilla: summary(df)\n")
   cat("   * Descripcion: Genera estadisticas descriptivas basicas (min, max, mean, cuartiles) para cada columna.\n")
@@ -74,8 +64,6 @@ function_registry <- function() {
   cat("   * Inputs: 'data' (Requerido) -> Vector o lista con los valores de reemplazo.\n\n")
   
   cat("13. Funciones matematicas internas\n")
-  cat("   * mean(x, na.rm=T) -> Promedio\n")
-  cat("   * sum(x, na.rm=T) -> Sumatoria\n")
   cat("   * n() -> Cuenta el numero de filas en el grupo actual (no requiere inputs)\n")
   cat("   * n_distinct(x) -> Cuenta valores unicos excluyendo duplicados\n\n")
 
