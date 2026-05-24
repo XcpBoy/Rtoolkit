@@ -457,6 +457,20 @@ regex_recap <- function() {
   cat("       - pattern (Requerido) -> El patron a testear.\n")
   cat("       - match (Opcional) -> Si es TRUE filtra y solo muestra las lineas que coinciden. FALSE muestra las que no. NA muestra todo.\n\n")
 
+  cat("8. str_match() y str_match_all()\n")
+  cat("   * Plantilla: str_match(string, pattern)\n")
+  cat("   * Descripcion: Extrae los matches de los grupos de captura definidos por parentesis '()'.\n")
+  cat("                  Devuelve una MATRIZ de caracteres: la columna 1 es el match completo,\n")
+  cat("                  la columna 2 es el primer grupo '()', la columna 3 el segundo, etc.\n")
+  cat("                  Es la alternativa perfecta cuando un Look-Behind falla por longitudes infinitas.\n")
+  cat("   * Inputs:\n")
+  cat("       - string (Requerido) -> Vector de caracteres.\n")
+  cat("       - pattern (Requerido) -> El patron con los grupos de captura entre parentesis obligatorios.\n")
+  cat("   * Ejemplo Fasta (Extraer despues del 3er espacio hasta la coma):\n")
+  cat("       - Codigo: m <- str_match(fasta, '^([^ ]+ ){3}([^,]+)')\n")
+  cat("       - Resultado: m[, 2] contendra el texto capturado por el segundo parentesis.\n\n")
+
+  
   cat("----------------------------------------------------------------------\n")
   cat(" PARTE 2: SINTAXIS COMPLETA DE EXPRESIONES REGULARES (REGEX)\n")
   cat("----------------------------------------------------------------------\n\n")
