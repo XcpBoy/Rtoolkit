@@ -495,7 +495,7 @@ regex_recap <- function() {
   
   cat("  1. Positive Lookbehind '(?<=paquete)' -> Busca un patrón que tenga a la IZQUIERDA el texto especificado.\n")
   cat("     * Sintaxis en R: '(?<=ID_)\\\\w+' -> Busca caracteres de palabra que esten inmediatamente despues de 'ID_'.\n")
-  cat("     * Caso Fasta (>): Para extraer la primera palabra despues de '>', usa: '(?<=<>)\\\\w+'\n\n")
+  cat("     * Caso Fasta (>): Para extraer la primera palabra despues de '>', usa: '(?<=>)\\\\w+'\n\n")
   
   cat("  2. Negative Lookbehind '(?<!paquete)' -> Busca un patrón que NO tenga a la IZQUIERDA el texto especificado.\n")
   cat("     * Sintaxis en R: '(?<!-)\\\\d+' -> Busca digitos que NO tengan un signo menos atras (solo numeros positivos).\n\n")
