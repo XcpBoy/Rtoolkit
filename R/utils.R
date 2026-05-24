@@ -488,6 +488,27 @@ regex_recap <- function() {
   cat("  * {n,}    -> Indica que el patron anterior debe repetirse AL MENOS n veces o mas.\n")
   cat("  * {,n}    -> Indica que el patron anterior debe repetirse COMO MAXIMO n veces.\n")
   cat("  * {n,m}   -> Indica un rango cerrado. El patron anterior debe aparecer ENTRE n y m veces (ambos inclusivos).\n\n")
+
+  cat("D) LOOKAROUNDS (Contexto de busqueda posicional / Localizadores)\n")
+  cat("--------------------------------------------------------------\n")
+  cat("Sirven para extraer patrones basados en lo que tienen antes o despues, SIN incluir el contexto en el resultado.\n\n")
+  
+  cat("  1. Positive Lookbehind '(?<=paquete)' -> Busca un patrón que tenga a la IZQUIERDA el texto especificado.\n")
+  cat("     * Sintaxis en R: '(?<=ID_)\\\\w+' -> Busca caracteres de palabra que esten inmediatamente despues de 'ID_'.\n")
+  cat("     * Caso Fasta (>): Para extraer la primera palabra despues de '>', usa: '(?<=<>)\\\\w+'\n\n")
+  
+  cat("  2. Negative Lookbehind '(?<!paquete)' -> Busca un patrón que NO tenga a la IZQUIERDA el texto especificado.\n")
+  cat("     * Sintaxis en R: '(?<!-)\\\\d+' -> Busca digitos que NO tengan un signo menos atras (solo numeros positivos).\n\n")
+  
+  cat("  3. Positive Lookahead '(?=paquete)' -> Busca un patrón que tenga a la DERECHA el texto especificado.\n")
+  cat("     * Sintaxis en R: '\\\\w+(?=\\\\.)' -> Busca una palabra que este inmediatamente antes de un punto final.\n\n")
+  
+  cat("  4. Negative Lookahead '(?!paquete)' -> Busca un patrón que NO tenga a la DERECHA el texto especificado.\n")
+  cat("     * Sintaxis en R: '\\\\d+(?!\\\\s)' -> Busca numeros que NO esten seguidos de un espacio.\n\n")
+  
+  cat("  5. Combinacion (Buscar ENTRE dos simbolos):\n")
+  cat("     * Plantilla general: '(?<=SIMBOLO_IZQ).*(?=SIMBOLO_DER)'\n")
+  cat("     * Ejemplo (Extraer texto entre corchetes [Texto]): '(?<=\\\\[)[^\\\\]]+(?=\\\\])'\n\n")
   
   cat("======================================================================\n")
 }
