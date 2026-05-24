@@ -470,9 +470,20 @@ regex_recap <- function() {
   cat("  4. Negative Lookahead '(?!paquete)' -> Busca un patrón que NO tenga a la DERECHA el texto especificado.\n")
   cat("     * Sintaxis en R: '\\\\d+(?!\\\\s)' -> Busca numeros que NO esten seguidos de un espacio.\n\n")
   
-  cat("  5. Combinacion (Buscar ENTRE dos simbolos):\n")
+  cat("  5. Combinacion (Buscar ENTRE dos simbolos o delimitadores):\n")
   cat("     * Plantilla general: '(?<=SIMBOLO_IZQ).*(?=SIMBOLO_DER)'\n")
-  cat("     * Ejemplo (Extraer texto entre corchetes [Texto]): '(?<=\\\\[)[^\\\\]]+(?=\\\\])'\n\n")
+  cat("     * Ejemplo Basico (Entre corchetes [Texto]): '(?<=\\\\[)[^\\\\]]+(?=\\\\])'\n\n")
+  cat("     * ALERTA DE ERROR COMUN (El peligro del comportamiento Greedy '.*'):\n")
+  cat("       Si buscas entre un delimitador y un espacio usando '(?<=Pais:\\\\s).*(?=\\\\s)',\n")
+  cat("       el '.*' es codicioso. No se detendra en el primer espacio, sino que devorara\n")
+  cat("       todo el string hasta el ULTIMO espacio de la linea (ej. 'Chile | Tipo:').\n\n")
+  cat("     * SOLUCIONES CORRECTAS (Romper la codicia):\n")
+  cat("       A) Usar caracteres de palabra continuos (\\\\w+) si el valor es de una palabra:\n")
+  cat("          '(?<=Pais:\\\\s)\\\\w+' -> Se detiene inmediatamente al encontrar el primer espacio.\n")
+  cat("       B) Usar clase de caracteres negada ([^ ]+) si incluye puntos o simbolos (ej. EE.UU):\n")
+  cat("          '(?<=Pais:\\\\s)[^ ]+' -> Extrae todo lo que NO sea un espacio, frenando en seco.\n")
+  cat("       C) Machear hasta el siguiente delimitador logico de la base (ej. barra vertical '|'):\n")
+  cat("          '(?<=Pais:\\\\s)[^|]+' -> Extrae todo hasta toparse con la barra '|'.\n\n")
   
   cat("======================================================================\n")
 }
