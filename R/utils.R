@@ -4,6 +4,16 @@ function_registry <- function() {
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
   
+  cat("1. glimpse()\n")
+  cat("   * Plantilla: glimpse(df)\n")
+  cat("   * Descripcion: Muestra un resumen transpuesto de los datos (columnas como filas) para ver todos los tipos de variables.\n")
+  cat("   * Inputs: 'df' (Requerido) -> El dataframe a explorar.\n\n")
+  
+  cat("2. str()\n")
+  cat("   * Plantilla: str(df)\n")
+  cat("   * Descripcion: Muestra la estructura interna del objeto en R base. Similar a glimpse pero mas tecnico.\n")
+  cat("   * Inputs: 'object' (Requerido) -> El objeto o dataframe a evaluar.\n\n")
+  
   cat("3. summary()\n")
   cat("   * Plantilla: summary(df)\n")
   cat("   * Descripcion: Genera estadisticas descriptivas basicas (min, max, mean, cuartiles) para cada columna.\n")
@@ -114,6 +124,57 @@ function_registry <- function() {
   cat("   * Descripcion: Une dos bases de datos, manteniendo TODAS las filas de la tabla izquierda y pegandole la info de la derecha que coincida.\n")
   cat("   * Inputs: 'x', 'y' (Requeridos) -> Los dos dataframes.\n")
   cat("             'by' (Requerido) -> String con el nombre de la columna que tienen en comun.\n\n")
+}
+
+#' @export
+func_recap <- function() {
+  cat("\n======================================================================\n")
+  cat("             CREACION Y ESTRUCTURA DE FUNCIONES PROPIAS\n")
+  cat("======================================================================\n\n")
+
+  cat("¿POR QUE USAR FUNCIONES?\n")
+  cat("Con el tiempo, te encontraras realizando la misma operacion una y otra vez.\n")
+  cat("En esos casos es ideal definir una funcion propia para llamarla cuando sea\n")
+  cat("necesario sin tener que repetir/copiar todo el codigo cada vez.\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" SINTAXIS BASICA Y COMPONENTES\n")
+  cat("----------------------------------------------------------------------\n")
+  cat("Toda funcion tiene 3 componentes principales: Entrada, Cuerpo y Salida.\n\n")
+
+  cat("nombre_funcion <- function(x, y) { \n")
+  cat("  # CUERPO: Lo que queramos que haga la funcion.\n")
+  cat("  r <- (x + y) * 2\n")
+  cat("  return(r) # SALIDA: El valor determinado en la linea final es el resultado.\n")
+  cat("}\n\n")
+
+  cat("----------------------------------------------------------------------\n")
+  cat(" REGLAS Y CONCEPTOS CLAVE\n")
+  cat("----------------------------------------------------------------------\n\n")
+
+  cat("1. Variables Locales (El ambiente de la funcion):\n")
+  cat("   * Las variables u objetos creados DENTRO de una funcion (ej. la 'r' arriba)\n")
+  cat("     NO se guardan en el ambiente global (Environment). Solo existen y se\n")
+  cat("     usan durante la ejecucion de la funcion.\n\n")
+
+  cat("2. El valor de Salida (Return):\n")
+  cat("   * El valor determinado en la ultima linea es el resultado que se retorna.\n")
+  cat("   * Es buena practica usar 'return()' para indicar claramente la salida.\n")
+  cat("   * Si el resultado es texto o combinacion de texto y valores, usa 'cat()'\n")
+  cat("     Ej: cat('El resultado es', valor)\n\n")
+
+  cat("3. Flexibilidad de los Argumentos (Inputs):\n")
+  cat("   * Multiples argumentos: function(x, y, z)\n")
+  cat("   * Sin argumentos: function() { runif(1, min=1, max=10) }\n")
+  cat("   * Vectores como argumentos: ¡'x' puede ser un solo numero o un vector entero!\n")
+  cat("     Ej: Si le pasas un vector a 'mean(x)', calculara el promedio de todo el vector.\n\n")
+
+  cat("4. Manejo de Errores por Argumentos Faltantes:\n")
+  cat("   * Si la funcion exige multiples argumentos y le pasas menos de los necesarios\n")
+  cat("     (ej. fun(2) cuando pide x e y), R arrojara un error diciendo:\n")
+  cat("     'argument \"y\" is missing, with no default'.\n\n")
+
+  cat("======================================================================\n")
 }
 
 #' @export
@@ -236,26 +297,10 @@ ggplot_recap <- function() {
 #' @export
 loops_recap <- function() {
   cat("\n======================================================================\n")
-  cat("                 FUNCIONES, ITERACIONES Y FOR-LOOPS\n")
+  cat("                 ITERACIONES Y BUCLES (FOR-LOOPS)\n")
   cat("======================================================================\n\n")
   
-  cat("----------------------------------------------------------------------\n")
-  cat(" PARTE 1: FUNCIONES PROPIAS\n")
-  cat("----------------------------------------------------------------------\n\n")
-  
-  cat("1. function()\n")
-  cat("   * Plantilla: mi_funcion <- function(x, y) { r <- (x+y)*2 ; return(r) }\n")
-  cat("   * Descripcion: Encapsula codigo repetitivo. Argumentos en (), cuerpo en {}.\n\n")
-
-  cat("2. return()\n")
-  cat("   * Plantilla: return(resultado)\n")
-  cat("   * Descripcion: Define la salida explicita de la funcion. Los objetos creados internamente no salen al ambiente global.\n\n")
-
-  cat("----------------------------------------------------------------------\n")
-  cat(" PARTE 2: BUCLES (FOR-LOOPS) Y PROCESOS ACUMULATIVOS\n")
-  cat("----------------------------------------------------------------------\n\n")
-  
-  cat("Los loops son utiles cuando el valor que vas a estimar depende directamente del valor calculado en la iteracion anterior.\n\n")
+  cat("Los loops son utiles cuando el valor que vas a estimar depende directamente del valor calculado en la iteracion anterior (procesos acumulativos).\n\n")
   
   cat("PASO 1. PREPARACION (Inicializar espacio de memoria):\n")
   cat("---------------------------\n")
@@ -281,7 +326,7 @@ loops_recap <- function() {
   cat("}\n\n")
 
   cat("----------------------------------------------------------------------\n")
-  cat(" PARTE 3: UTILIDADES PARA DENTRO DEL LOOP\n")
+  cat(" UTILIDADES PARA DENTRO DEL LOOP\n")
   cat("----------------------------------------------------------------------\n\n")
   
   cat("1. cat() y paste()\n")
