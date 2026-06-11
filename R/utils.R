@@ -159,7 +159,7 @@ func_recap <- function() {
   cat("   * Sin argumentos: function() { runif(1, min=1, max=10) }\n")
   cat("   * Vectores como argumentos: ¡'x' puede ser un solo numero o un vector entero!\n")
   cat("     Ej: Si le pasas un vector a 'mean(x)', calculara el promedio de todo el vector.\n\n")
-
+  }
 #' @export
 conditionals_recap <- function() {
   cat("\n======================================================================\n")
