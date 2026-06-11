@@ -148,7 +148,7 @@ madeupex <- function() {
   cat("  group_by(cut) %>%\n")
   cat("  summarise(across(\n")
   cat("    c(carat, price),\n")
-  cat("    list(prom = ~mean(.x), min = ~min(.x), max = ~max(.x))\n")
+  cat("    list(prom = ~mean(.x, na.rm = TRUE), min = ~min(.x, na.rm = TRUE), max = ~max(.x, na.rm = TRUE))\n")
   cat("  ))\n\n")
 
   cat("--- across() con where() - todas las numericas ---\n")
