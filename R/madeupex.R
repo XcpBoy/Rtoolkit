@@ -1,5 +1,11 @@
 #' @export
 madeupex <- function() {
+  cat("============================================================================\n")
+  cat("  R DEMOS - EJEMPLOS CORTOS DE CADA FUNCION Y SUS COMBINACIONES\n")
+  cat("  Inspirado en ejercicios de Analisis de Datos I - Universidad Icesi\n")
+  cat("  Cada seccion es auto-contenida\n")
+  cat("============================================================================\n\n")
+
   cat("====================================================================\n")
   cat(" 1. VECTORES Y OPERACIONES BASICAS\n")
   cat("====================================================================\n\n")
@@ -538,7 +544,89 @@ madeupex <- function() {
   cat("  filter(total > prom) %>%\n")
   cat("  left_join(clientes, by = 'id')\n\n")
 
+  cat("====================================================================\n")
+  cat(" 19. FUNCIONES ADICIONALES (del Script Compartido)\n")
+  cat("====================================================================\n\n")
+
+  cat("--- setdiff(): elementos UNICOS de A (que NO estan en B) ---\n")
+  cat("genes_hoja <- c('BRCA1', 'TP53', 'EGFR', 'MYC')\n")
+  cat("genes_raiz <- c('TP53', 'EGFR', 'KRAS')\n")
+  cat("setdiff(genes_hoja, genes_raiz)  # 'BRCA1', 'MYC'\n")
+  cat("setdiff(genes_raiz, genes_hoja)  # 'KRAS'\n\n")
+
+  cat("--- setNames(): crear vector con nombres en un paso ---\n")
+  cat("setNames(c(25, 30, 22), c('Ana', 'Luis', 'Pedro'))\n")
+  cat("# Ana Luis Pedro\n")
+  cat("#  25   30    22\n\n")
+
+  cat("--- if_all(): filtrar filas sin NA en NINGUNA columna ---\n")
+  cat("df_na <- data.frame(x = c(1, NA, 3), y = c('a', 'b', NA))\n")
+  cat("df_na %>% filter(if_all(everything(), ~ !is.na(.x)))\n")
+  cat("# Solo fila 1 (x=1, y='a')\n\n")
+
+  cat("--- if_any(): filas donde ALGUNA columna cumple condicion ---\n")
+  cat("df_spp <- data.frame(spp1 = c(1, 0, 0), spp2 = c(0, 0, 1), spp3 = c(0, 0, 0))\n")
+  cat("df_spp %>% filter(if_any(starts_with('spp'), ~ .x > 0))\n")
+  cat("# Filas 1 y 3 (al menos una spp presente)\n\n")
+
+  cat("--- anyNA(): existe algun NA? ---\n")
+  cat("anyNA(c(1, 2, NA, 4))  # TRUE\n")
+  cat("anyNA(c(1, 2, 3, 4))   # FALSE\n\n")
+
+  cat("--- paste0(): concatenar sin separador ---\n")
+  cat("paste0('chr', 1:5)  # 'chr1' 'chr2' 'chr3' 'chr4' 'chr5'\n")
+  cat("paste0('sample_', 1:3, '.fasta')\n")
+  cat("# 'sample_1.fasta' 'sample_2.fasta' 'sample_3.fasta'\n\n")
+
+  cat("--- do.call(rbind, ...): convertir lista en data.frame ---\n")
+  cat('lista <- list(\n')
+  cat('  data.frame(a = 1, b = "x"),\n')
+  cat('  data.frame(a = 2, b = "y"),\n')
+  cat('  data.frame(a = 3, b = "z")\n')
+  cat(")\n")
+  cat("do.call(rbind, lista)  # los une fila por fila\n\n")
+
+  cat("--- str_remove(): eliminar patron (atajo para str_replace) ---\n")
+  cat("str_remove('NM_007294.4', '_')\n")
+  cat("# 'NM007294.4' (solo el primer match)\n\n")
+
+  cat("--- writeLines(): mostrar vector elemento por linea ---\n")
+  cat("colores <- c('Rojo', 'Verde', 'Azul')\n")
+  cat("writeLines(colores)\n")
+  cat("# Rojo\\nVerde\\nAzul  (cada uno en su linea)\n\n")
+
+  cat("--- nchar(): longitud de string (R Base) ---\n")
+  cat("nchar('ATCGATCG')  # 8\n")
+  cat("nchar(c('Hola', 'Mundo'))  # 4, 5\n\n")
+
+  cat("--- exp() y log(): transformaciones ---\n")
+  cat("log(c(1, 10, 100))    # 0, 2.30, 4.61 (log natural)\n")
+  cat("exp(c(0, 1, 2))       # 1, 2.72, 7.39 (inverso de log)\n\n")
+
+  cat("--- gregexpr(): posiciones de matches (R Base) ---\n")
+  cat("gregexpr('A', 'ATCGATCG')[[1]]  # 1, 5\n\n")
+
+  cat("--- View(): inspeccion visual en RStudio ---\n")
+  cat("View(diamonds)  # abre pestana interactiva\n")
+  cat("# No produce salida en consola, solo abre la tabla\n\n")
+
+  cat("--- group_by() + mutate(): estadisticos por grupo SIN colapsar ---\n")
+  cat("diamonds %>%\n")
+  cat("  group_by(cut) %>%\n")
+  cat("  mutate(precio_prom_corte = mean(price, na.rm = TRUE),\n")
+  cat("         dif_prom = price - precio_prom_corte) %>%\n")
+  cat("  select(cut, price, precio_prom_corte, dif_prom)\n")
+  cat("# Cada fila conserva su precio individual + el promedio de su corte\n\n")
+
+  cat("--- group_by() + mutate() aplicado a loop (Parcial 3) ---\n")
+  cat("df_ej <- data.frame(especie = rep(c('A','B'), each = 3),\n")
+  cat("                    valor = c(10, 20, 15, 30, 25, 35))\n")
+  cat("df_ej %>%\n")
+  cat("  group_by(especie) %>%\n")
+  cat("  mutate(promedio_sp = mean(valor),\n")
+  cat("         dif_prom = valor - promedio_sp)\n\n")
+
   cat("============================================================================\n")
-  cat("  FIN DE LOS DEMOS - 18 SECCIONES CUBIERTAS\n")
+  cat("  FIN DE LOS DEMOS - 19 SECCIONES CUBIERTAS\n")
   cat("============================================================================\n")
 }
