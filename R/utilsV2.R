@@ -1,10 +1,5 @@
 #' @export
 function_registry <- function() {
-  cat("========================================================================\n")
-  cat("  UTILS.R - GUIA COMPLETA DE REFERENCIA R\n")
-  cat("  Basada en talleres de Analisis de Datos I - Universidad Icesi\n")
-  cat("========================================================================\n\n")
-
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 1: VECTORES, MATRICES Y TIPOS DE DATOS (R BASE)\n")
   cat("----------------------------------------------------------------------\n\n")
@@ -694,12 +689,6 @@ function_registry <- function() {
   cat("       resultado a CADA fila del grupo sin perder filas.\n")
   cat("     * Util para: crear columnas con medias groupales, diferencias\n")
   cat("       respecto al promedio del grupo, etc.\n\n")
-
-  cat("======================================================================\n")
-  cat("  FIN DE LA GUIA - 109 TEMAS CUBIERTOS\n")
-
-  cat("  Todas las funciones del curso organizadas por grupo\n")
-  cat("======================================================================\n")
 }
 #' @export
 func_recap <- function() {
