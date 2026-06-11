@@ -14,11 +14,6 @@ function_registry <- function() {
   cat("   * Descripcion: Muestra la estructura interna del objeto en R base. Similar a glimpse pero mas tecnico.\n")
   cat("   * Inputs: 'object' (Requerido) -> El objeto o dataframe a evaluar.\n\n")
   
-  cat("3. summary()\n")
-  cat("   * Plantilla: summary(df)\n")
-  cat("   * Descripcion: Genera estadisticas descriptivas basicas (min, max, mean, cuartiles) para cada columna.\n")
-  cat("   * Inputs: 'object' (Requerido) -> El dataframe o vector numerico.\n\n")
-  
   cat("4. table()\n")
   cat("   * Plantilla: table(df$columna)\n")
   cat("   * Descripcion: Crea una tabla de contingencia con el conteo de frecuencias de los valores (ideal para ver errores de tipeo en categorias).\n")
