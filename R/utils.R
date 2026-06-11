@@ -8,7 +8,7 @@ function_registry <- function() {
   salmon.all <- salmon.all %>% rename(
   sex = sex.x
 )
-
+relocate() falta tambien
   
   
   cat("4. table()\n")
