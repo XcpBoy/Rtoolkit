@@ -4,16 +4,6 @@ function_registry <- function() {
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
   
-  cat("1. glimpse()\n")
-  cat("   * Plantilla: glimpse(df)\n")
-  cat("   * Descripcion: Muestra un resumen transpuesto de los datos (columnas como filas) para ver todos los tipos de variables.\n")
-  cat("   * Inputs: 'df' (Requerido) -> El dataframe a explorar.\n\n")
-  
-  cat("2. str()\n")
-  cat("   * Plantilla: str(df)\n")
-  cat("   * Descripcion: Muestra la estructura interna del objeto en R base. Similar a glimpse pero mas tecnico.\n")
-  cat("   * Inputs: 'object' (Requerido) -> El objeto o dataframe a evaluar.\n\n")
-  
   cat("4. table()\n")
   cat("   * Plantilla: table(df$columna)\n")
   cat("   * Descripcion: Crea una tabla de contingencia con el conteo de frecuencias de los valores (ideal para ver errores de tipeo en categorias).\n")
