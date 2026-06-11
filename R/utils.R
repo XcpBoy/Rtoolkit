@@ -3,6 +3,24 @@ function_registry <- function() {
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
+
+    cat("1. rename()\n")
+  cat("   * Plantilla: df_nuevo <- df %>% rename(nombre_nuevo = nombre_viejo)\n")
+  cat("   * Descripcion: Cambia el nombre de una o varias columnas sin modificar los datos.\n")
+  cat("   * Inputs: 'nuevo = viejo' (Requerido) -> Nombre nuevo y columna original.\n\n")
+
+  cat("2. relocate()\n")
+  cat("   * Plantilla: df_nuevo <- df %>% relocate(columna, .before = otra_col)\n")
+  cat("   * Descripcion: Reubica columnas dentro del dataframe sin alterar los datos.\n")
+  cat("   * Inputs: '... ' (Requerido) -> Columnas a mover.\n")
+  cat("             '.before' o '.after' (Opcional) -> Posicion donde se ubicaran.\n\n")
+
+  cat("3. subset()\n")
+  cat("   * Plantilla: df_nuevo <- subset(df, especie == 'setosa', select = c(sepal.length, sepal.width))\n")
+  cat("   * Descripcion: Funcion de R base para filtrar filas y/o seleccionar columnas en una sola instruccion.\n")
+  cat("   * Inputs: 'x' (Requerido) -> Dataframe original.\n")
+  cat("             'subset' (Opcional) -> Condicion logica para filtrar filas.\n")
+  cat("             'select' (Opcional) -> Columnas a conservar.\n\n")
   
   cat("4. table()\n")
   cat("   * Plantilla: table(df$columna)\n")
