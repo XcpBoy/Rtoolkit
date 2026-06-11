@@ -1,10 +1,5 @@
 #' @export
 function_registry <- function() {
-  cat("========================================================================\n")
-  cat("  UTILS.R - GUIA COMPLETA DE REFERENCIA R\n")
-  cat("  Basada en talleres de Analisis de Datos I - Universidad Icesi\n")
-  cat("========================================================================\n\n")
-
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 1: OBJETOS, VECTORES Y TIPOS DE DATOS (R BASE)\n")
   cat("----------------------------------------------------------------------\n\n")
@@ -671,10 +666,6 @@ function_registry <- function() {
   cat("    * position = 'fill'  # escala de 0 a 1 (proporcion)\n")
   cat("    * position = 'dodge' # barras lado a lado\n\n")
 
-  cat("======================================================================\n")
-  cat("  FIN DE LA GUIA - 106 TEMAS CUBIERTOS\n")
-  cat("  Todas las funciones del curso organizadas por grupo\n")
-  cat("======================================================================\n")
 }
 
 #' @export
