@@ -56,8 +56,6 @@ function_registry <- function() {
   
   cat("10. arrange()\n")
   cat("   * Plantilla: df_ordenado <- df %>% arrange(desc(columna_num))\n")
-  cat("   * Descripcion: Ordena las filas del dataframe basado en los valores de una o mas columnas.\n")
-  cat("   * Inputs: '... ' (Requerido) -> Columnas por las cuales ordenar. Usa desc() para orden descendente.\n\n")
   
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 3: MANEJO DE NAs Y FUNCIONES MATEMATICAS\n")
