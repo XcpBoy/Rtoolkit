@@ -4,7 +4,7 @@ function_registry <- function() {
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
 
-    cat("1. rename()\n")
+  cat("1. rename()\n")
   cat("   * Plantilla: df_nuevo <- df %>% rename(nombre_nuevo = nombre_viejo)\n")
   cat("   * Descripcion: Cambia el nombre de una o varias columnas sin modificar los datos.\n")
   cat("   * Inputs: 'nuevo = viejo' (Requerido) -> Nombre nuevo y columna original.\n\n")
