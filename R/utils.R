@@ -3,13 +3,6 @@ function_registry <- function() {
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
- ·Pendientes por meter:·
-  rename()
-  salmon.all <- salmon.all %>% rename(
-  sex = sex.x
-)
-relocate() falta tambien
-  
   
   cat("4. table()\n")
   cat("   * Plantilla: table(df$columna)\n")
