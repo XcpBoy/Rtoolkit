@@ -133,16 +133,6 @@ func_recap <- function() {
   cat("             CREACION Y ESTRUCTURA DE FUNCIONES PROPIAS\n")
   cat("======================================================================\n\n")
 
-  cat("¿POR QUE USAR FUNCIONES?\n")
-  cat("Con el tiempo, te encontraras realizando la misma operacion una y otra vez.\n")
-  cat("En esos casos es ideal definir una funcion propia para llamarla cuando sea\n")
-  cat("necesario sin tener que repetir/copiar todo el codigo cada vez.\n\n")
-
-  cat("----------------------------------------------------------------------\n")
-  cat(" SINTAXIS BASICA Y COMPONENTES\n")
-  cat("----------------------------------------------------------------------\n")
-  cat("Toda funcion tiene 3 componentes principales: Entrada, Cuerpo y Salida.\n\n")
-
   cat("nombre_funcion <- function(x, y) { \n")
   cat("  # CUERPO: Lo que queramos que haga la funcion.\n")
   cat("  r <- (x + y) * 2\n")
@@ -169,14 +159,6 @@ func_recap <- function() {
   cat("   * Sin argumentos: function() { runif(1, min=1, max=10) }\n")
   cat("   * Vectores como argumentos: ¡'x' puede ser un solo numero o un vector entero!\n")
   cat("     Ej: Si le pasas un vector a 'mean(x)', calculara el promedio de todo el vector.\n\n")
-
-  cat("4. Manejo de Errores por Argumentos Faltantes:\n")
-  cat("   * Si la funcion exige multiples argumentos y le pasas menos de los necesarios\n")
-  cat("     (ej. fun(2) cuando pide x e y), R arrojara un error diciendo:\n")
-  cat("     'argument \"y\" is missing, with no default'.\n\n")
-
-  cat("======================================================================\n")
-}
 
 #' @export
 conditionals_recap <- function() {
