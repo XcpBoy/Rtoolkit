@@ -1,5 +1,5 @@
 #' @export
-function_registry <- function() {
+function_registryv1 <- function() {
   cat("----------------------------------------------------------------------\n")
   cat(" GRUPO 1: EXPLORACION Y ESTRUCTURA DE DATOS\n")
   cat("----------------------------------------------------------------------\n\n")
@@ -128,7 +128,7 @@ function_registry <- function() {
 }
 
 #' @export
-func_recap <- function() {
+func_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("             CREACION Y ESTRUCTURA DE FUNCIONES PROPIAS\n")
   cat("======================================================================\n\n")
@@ -161,7 +161,7 @@ func_recap <- function() {
   cat("     Ej: Si le pasas un vector a 'mean(x)', calculara el promedio de todo el vector.\n\n")
   }
 #' @export
-conditionals_recap <- function() {
+conditionals_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("        CONDICIONALES CLASICOS, CONTROL DE FLUJO Y VECTORIZADOS\n")
   cat("======================================================================\n\n")
@@ -192,7 +192,7 @@ conditionals_recap <- function() {
 }
 
 #' @export
-ggplot_recap <- function() {
+ggplot_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("             MASTER TEMPLATES Y ESTRUCTURA DE GGPLOT2\n")
   cat("======================================================================\n\n")
@@ -278,7 +278,7 @@ ggplot_recap <- function() {
 }
 
 #' @export
-loops_recap <- function() {
+loops_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("                 ITERACIONES Y BUCLES (FOR-LOOPS)\n")
   cat("======================================================================\n\n")
@@ -323,7 +323,7 @@ loops_recap <- function() {
 }
 
 #' @export
-pivot_longer_recap <- function() {
+pivot_longer_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("             COMO FUNCIONA PIVOT_LONGER (EJEMPLO AÑOS)\n")
   cat("======================================================================\n\n")
@@ -356,7 +356,7 @@ pivot_longer_recap <- function() {
 }
 
 #' @export
-regex_recap <- function() {
+regex_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("        ESTRUCTURA, FUNCIONES DE STRINGR Y SINTAXIS REGEX\n")
   cat("======================================================================\n\n")
@@ -505,7 +505,7 @@ regex_recap <- function() {
 }
 
 #' @export
-dataframe_creation_recap <- function() {
+dataframe_creation_recapv1 <- function() {
   cat("\n======================================================================\n")
   cat("             ¿COMO CREAR UN DATAFRAME PASO A PASO?\n")
   cat("======================================================================\n\n")
